@@ -77,7 +77,9 @@ def plot_win_loss_distribution(analyzer: TradeAnalyzer, save_path: Optional[str]
         analyzer: TradeAnalyzer instance
         save_path: Optional path to save the plot
     """
-    analyzer.calculate_pnl()
+    # Ensure PnL is calculated (method is idempotent)
+    if 'pnl' not in analyzer.trades_df.columns:
+        analyzer.calculate_pnl()
     trades = analyzer.trades_df[analyzer.trades_df['pnl'] != 0]['pnl']
     
     winning_trades = trades[trades > 0]

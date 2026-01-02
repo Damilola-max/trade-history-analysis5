@@ -7,8 +7,7 @@ calculate performance metrics, and generate visualizations.
 
 import pandas as pd
 import numpy as np
-from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Optional
 
 
 class TradeAnalyzer:
